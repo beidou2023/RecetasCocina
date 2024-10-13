@@ -7,4 +7,57 @@
     android:layout_height="match_parent"
     tools:context=".Receta">
 
+
+    <LinearLayout
+        android:layout_width="408dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/imageViewIcon1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:src="@drawable/home_1_svgrepo_com"
+            android:scaleType="centerInside"
+            android:adjustViewBounds="true"
+            android:contentDescription="Icon description" />
+
+        <ImageView
+            android:id="@+id/imageViewIcon2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:src="@drawable/search_alt_2_svgrepo_com"
+            android:scaleType="centerInside"
+            android:adjustViewBounds="true"
+            android:contentDescription="Icon description" />
+        <ImageView
+            android:id="@+id/imageViewIcon3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:src="@drawable/add_plus_square_svgrepo_com"
+            android:scaleType="centerInside"
+            android:adjustViewBounds="true"
+            android:contentDescription="Icon description" />
+        <ImageView
+            android:id="@+id/imageViewIcon4"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:src="@drawable/profile_round_1346_svgrepo_com"
+            android:scaleType="centerInside"
+            android:adjustViewBounds="true"
+            android:contentDescription="Icon description" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

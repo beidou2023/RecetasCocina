@@ -7,4 +7,128 @@
     android:layout_height="match_parent"
     tools:context=".PRecetas">
 
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="44dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/txv_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="132dp"
+        android:layout_marginTop="100dp"
+        android:text="_username"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txv_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="132dp"
+        android:layout_marginTop="64dp"
+        android:text="_@user"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_marginTop="52dp"
+        android:background="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txv_user" />
+
+    <Button
+        android:layout_width="170dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="160dp"
+        android:text="Favoritos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.066"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:layout_width="170dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="160dp"
+        android:text="Mis Recetas"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.834"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="408dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/imageViewIcon1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:src="@drawable/home_1_svgrepo_com"
+            android:scaleType="centerInside"
+            android:adjustViewBounds="true"
+            android:contentDescription="Icon description" />
+
+        <ImageView
+            android:id="@+id/imageViewIcon2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:src="@drawable/search_alt_2_svgrepo_com"
+            android:scaleType="centerInside"
+            android:adjustViewBounds="true"
+            android:contentDescription="Icon description" />
+        <ImageView
+            android:id="@+id/imageViewIcon3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:src="@drawable/add_plus_square_svgrepo_com"
+            android:scaleType="centerInside"
+            android:adjustViewBounds="true"
+            android:contentDescription="Icon description" />
+        <ImageView
+            android:id="@+id/imageViewIcon4"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:src="@drawable/profile_round_1346_svgrepo_com"
+            android:scaleType="centerInside"
+            android:adjustViewBounds="true"
+            android:contentDescription="Icon description" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_favoritos"
+        android:layout_width="370dp"
+        android:layout_height="427dp"
+        android:layout_marginTop="244dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.39"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
