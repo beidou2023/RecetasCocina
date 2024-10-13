@@ -1,6 +1,7 @@
 package com.example.recetascocina;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +10,8 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class Receta extends AppCompatActivity {
+
+    TextView nombre;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,5 +23,6 @@ public class Receta extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        nombre=findViewById(R.id.txv_nombreReceta);
     }
 }
