@@ -1,6 +1,7 @@
 package com.example.recetascocina;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -52,6 +53,10 @@ public class Receta extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        SharedPreferences sharedPreferences = getSharedPreferences("UsuarioPrefs", MODE_PRIVATE);
+        idUsuario = sharedPreferences.getString("usuario_id", null);
+
         idReceta=getIntent().getStringExtra("idReceta");
 
         imgRecetaa=findViewById(R.id.img_VReceta);
@@ -162,6 +167,7 @@ public class Receta extends AppCompatActivity {
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> parametros = new HashMap<>();
                 parametros.put("idReceta", idReceta);
+                parametros.put("idUsuario", idUsuario);
                 return parametros;
             }
         };
