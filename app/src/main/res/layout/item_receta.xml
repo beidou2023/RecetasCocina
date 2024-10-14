@@ -9,7 +9,7 @@
 
     <!-- Primer ImageView -->
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/img_IReceta"
         android:layout_width="120dp"
         android:layout_height="120dp"
 
@@ -24,14 +24,14 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
 
-        app:layout_constraintTop_toBottomOf="@id/imageView4"
+        app:layout_constraintTop_toBottomOf="@id/img_IReceta"
         app:layout_constraintStart_toStartOf="parent"
         android:gravity="center_vertical"
         app:layout_constraintEnd_toEndOf="parent">
 
         <!-- Segundo ImageView -->
         <ImageView
-            android:id="@+id/imageView5"
+            android:id="@+id/img_IUsuario"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginTop="5dp"
@@ -39,23 +39,31 @@
 
         <!-- TextView -->
         <TextView
-            android:id="@+id/textView9"
+            android:id="@+id/txv_IUsuario"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textSize="9sp"
             android:layout_gravity="bottom"
             android:text="TextView" />
+
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/textView91"
-        android:layout_marginTop="5dp"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:textSize="10sp"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+    <TextView
+        android:id="@+id/txv_ITitulo"
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+        android:textSize="12sp"
         android:textStyle="bold"
-        android:text="_Nombre completo\nde la receta"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        android:layout_weight="1"
+        android:layout_marginTop="4dp"
+        android:text="aaaa\naa"/>
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
