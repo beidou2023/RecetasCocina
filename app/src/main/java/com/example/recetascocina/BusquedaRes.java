@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -42,6 +43,8 @@ public class BusquedaRes extends AppCompatActivity {
     AdapterRecetas adapterBusqueda;
     List<Object[]> items;
 
+    TextView nroRecetas;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +55,7 @@ public class BusquedaRes extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        nroRecetas=findViewById(R.id.txv_nroBusquedaRecetas);
         recyclerBusqueda=findViewById(R.id.rv_resultado);
         agregarR=getIntent().getStringExtra("agrearIngrediente");
         quitarR=getIntent().getStringExtra("quitarIngrediente");
@@ -86,6 +90,7 @@ public class BusquedaRes extends AppCompatActivity {
 
                             items.add(new Object[]{col0,col1,col2,col3,col4});
                         }
+                        nroRecetas.setText(dataArray.length());
                         adapterBusqueda = new AdapterRecetas(BusquedaRes.this,items);
                         recyclerBusqueda.setAdapter(adapterBusqueda);
                     }
