@@ -22,42 +22,66 @@
             android:id="@+id/imageViewIcon1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:layout_gravity="center"
-            android:src="@drawable/home_1_svgrepo_com"
-            android:scaleType="centerInside"
+            android:layout_weight="1"
             android:adjustViewBounds="true"
-            android:contentDescription="Icon description" />
+            android:contentDescription="Icon description"
+            android:onClick="goHome"
+            android:scaleType="centerInside"
+            android:src="@drawable/home_1_svgrepo_com" />
 
         <ImageView
             android:id="@+id/imageViewIcon2"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:layout_gravity="center"
-            android:src="@drawable/search_alt_2_svgrepo_com"
-            android:scaleType="centerInside"
+            android:layout_weight="1"
             android:adjustViewBounds="true"
-            android:contentDescription="Icon description" />
+            android:contentDescription="Icon description"
+            android:onClick="goBusqueda"
+            android:scaleType="centerInside"
+            android:src="@drawable/search_alt_2_svgrepo_com" />
+
         <ImageView
             android:id="@+id/imageViewIcon3"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:layout_gravity="center"
-            android:src="@drawable/add_plus_square_svgrepo_com"
-            android:scaleType="centerInside"
+            android:layout_weight="1"
             android:adjustViewBounds="true"
-            android:contentDescription="Icon description" />
+            android:contentDescription="Icon description"
+            android:onClick="goCrearReceta"
+            android:scaleType="centerInside"
+            android:src="@drawable/add_plus_square_svgrepo_com" />
+
         <ImageView
             android:id="@+id/imageViewIcon4"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:layout_gravity="center"
-            android:src="@drawable/profile_round_1346_svgrepo_com"
-            android:scaleType="centerInside"
+            android:layout_weight="1"
             android:adjustViewBounds="true"
-            android:contentDescription="Icon description" />
+            android:contentDescription="Icon description"
+            android:onClick="goPFavoritos"
+            android:scaleType="centerInside"
+            android:src="@drawable/profile_round_1346_svgrepo_com" />
     </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="361dp"
+        android:layout_height="649dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <include
+            android:id="@+id/included_scroll_view"
+            layout="@layout/scroll_crear_receta"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

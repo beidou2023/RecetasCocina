@@ -1,6 +1,8 @@
 package com.example.recetascocina;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -24,5 +26,23 @@ public class Receta extends AppCompatActivity {
             return insets;
         });
         nombre=findViewById(R.id.txv_nombreReceta);
+    }
+
+
+    public void goHome(View v){
+        Intent it=new Intent(getApplicationContext(), Home.class);
+        startActivity(it);
+    }
+    public void goBusqueda(View v){
+        Intent it=new Intent(getApplicationContext(), Busqueda.class);
+        startActivity(it);
+    }
+    public void goPFavoritos(View v){
+        Intent it=new Intent(getApplicationContext(), PFavoritos.class);
+        startActivity(it);
+    }
+    public void goCrearReceta(View v){
+        Intent it=new Intent(getApplicationContext(), CrearReceta.class);
+        startActivity(it);
     }
 }

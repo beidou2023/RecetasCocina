@@ -18,13 +18,13 @@
             android:layout_height="20dp"
             android:text="atras"/>
 
+        <!-- Texto 1 -->
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:src="@drawable/sample"
-            android:scaleType="centerCrop" />
+            android:scaleType="centerCrop"
+            android:src="@drawable/add_plus_square_svgrepo_com"/>
 
-        <!-- Texto 1 -->
         <TextView
             android:id="@+id/txv_nombreReceta"
             android:layout_width="wrap_content"

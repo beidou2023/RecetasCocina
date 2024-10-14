@@ -15,7 +15,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:src="@drawable/sample"
+            android:src="@drawable/add_plus_square_svgrepo_com"
             android:scaleType="centerCrop" />
 
         <EditText
