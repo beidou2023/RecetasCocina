@@ -6,27 +6,27 @@
     android:fillViewport="true">
 
     <LinearLayout
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="16dp">
 
-        <!-- Imagen 1 -->
         <TextView
 
             android:layout_width="wrap_content"
             android:layout_height="20dp"
             android:text="atras"/>
 
-        <!-- Texto 1 -->
         <ImageView
+            android:id="@+id/img_VReceta"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:scaleType="centerCrop"
             android:src="@drawable/add_plus_square_svgrepo_com"/>
 
         <TextView
-            android:id="@+id/txv_nombreReceta"
+            android:id="@+id/txv_VnombreReceta"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -45,13 +45,13 @@
             android:layout_marginTop="16dp">
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/img_VUsuario"
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 tools:srcCompat="@tools:sample/avatars" />
 
             <TextView
-                android:id="@+id/txv_autor"
+                android:id="@+id/txv_Vautor"
                 android:layout_marginStart="10dp"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -60,7 +60,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/txv_comentarios"
+            android:id="@+id/txv_Vcomentarios"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -78,7 +78,7 @@
                 android:text="Duracion: "/>
 
             <TextView
-                android:id="@+id/txv_duracion"
+                android:id="@+id/txv_Vduracion"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="_duracion" />
@@ -100,7 +100,7 @@
                     android:layout_height="match_parent"
                     android:text="INGREDIENTES: "/>
                 <TextView
-                    android:id="@+id/txv_ingredientes"
+                    android:id="@+id/txv_Vingredientes"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="_ingredientes\n_ingredientes"/>
@@ -117,7 +117,7 @@
                     android:layout_height="match_parent"
                     android:text="UTENCILIOS: "/>
                 <TextView
-                    android:id="@+id/txv_utencilios"
+                    android:id="@+id/txv_Vutencilios"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="_utencilios\n_utencilios"/>
@@ -134,7 +134,7 @@
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/txv_prereceta"
+            android:id="@+id/txv_Vprereceta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -149,7 +149,7 @@
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/txv_pasos"
+            android:id="@+id/txv_Vpasos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"

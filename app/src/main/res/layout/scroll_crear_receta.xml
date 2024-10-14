@@ -13,6 +13,7 @@
 
 
         <ImageView
+            android:id="@+id/img_receta"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:src="@drawable/add_plus_square_svgrepo_com"

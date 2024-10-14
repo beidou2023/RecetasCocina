@@ -52,7 +52,7 @@ public class PRecetas extends AppCompatActivity {
         recyclerMisRecetas=findViewById(R.id.rv_misRecetas);
         SharedPreferences sharedPreferences = getSharedPreferences("UsuarioPrefs", MODE_PRIVATE);
         idUsuario = sharedPreferences.getString("usuario_id", null);
-
+        verFavoritos();
     }
 
     private void verFavoritos(){
