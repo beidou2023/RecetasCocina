@@ -1,6 +1,7 @@
 package com.example.recetascocina;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -48,7 +49,9 @@ public class PFavoritos extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
+        recyclerFavoritos=findViewById(R.id.rv_favoritos);
+        SharedPreferences sharedPreferences = getSharedPreferences("UsuarioPrefs", MODE_PRIVATE);
+        idUsuario = sharedPreferences.getString("usuario_id", null);
         verFavoritos();
     }
 
