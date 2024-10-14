@@ -75,11 +75,11 @@ public class Home extends AppCompatActivity {
                         for (int i = 0; i < dataArray.length(); i++) {
                             JSONObject carta = dataArray.getJSONObject(i);
 
-                            String col0 = carta.getString("idCarta");
-                            String col1 = carta.getString("NombreEmpresa");
-                            String col2 = carta.getString("Fecha");
-                            String col3 = carta.getString("NumeroCarta");
-                            String col4 = carta.getString("Observaciones");
+                            String col0 = carta.getString("id");
+                            String col1 = carta.getString("titulo");
+                            String col2 = carta.getString("imagen");
+                            String col3 = carta.getString("username");
+                            String col4 = carta.getString("Uimagen");
 
                             items1.add(new Object[]{col0,col1,col2,col3,col4});
                         }
