@@ -161,6 +161,50 @@ public class Home extends AppCompatActivity {
         requestQueue.add(stringRequest);
     }
 
+    public void limpiarHistorial(View v){
+        limpiarHistorialBDD();
+        Intent it=new Intent(getApplicationContext(), Home.class);
+        startActivity(it);
+    }
+
+    private void limpiarHistorialBDD(){
+        String URL=Urls.REMOTO_LIMPIAR_HISTORIAL_URL;
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONObject jsonResponse = new JSONObject(response);
+                    boolean success = jsonResponse.getBoolean("success");
+
+                    if (!success) {
+                        Toast.makeText(getApplicationContext(),"No se limpio Nada",Toast.LENGTH_SHORT).show();
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Toast.makeText(Home.this, "Error en la respuesta del servidor", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(Home.this, error.toString(), Toast.LENGTH_SHORT).show();
+            }
+        }) {
+            @Nullable
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> parametros = new HashMap<>();
+                parametros.put("idUsuario", idUsuario);
+                return parametros;
+            }
+        };
+        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+        requestQueue.add(stringRequest);
+    }
+
+
+
     public void goHome(View v){
         Intent it=new Intent(getApplicationContext(), Home.class);
         startActivity(it);
