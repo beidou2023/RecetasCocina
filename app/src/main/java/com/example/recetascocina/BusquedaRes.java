@@ -1,6 +1,7 @@
 package com.example.recetascocina;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -54,9 +55,12 @@ public class BusquedaRes extends AppCompatActivity {
         recyclerBusqueda=findViewById(R.id.rv_resultado);
         agregarR=getIntent().getStringExtra("agrearIngrediente");
         quitarR=getIntent().getStringExtra("quitarIngrediente");
+        SharedPreferences sharedPreferences = getSharedPreferences("UsuarioPrefs", MODE_PRIVATE);
+        idUsuario = sharedPreferences.getString("usuario_id", null);
+        verBusqueda();
     }
 
-    private void verFavoritos(){
+    private void verBusqueda(){
         String URL=Urls.REMOTO_BUSQUEDA_URL;
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
