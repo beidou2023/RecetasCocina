@@ -83,6 +83,9 @@ public class PRecetas extends AppCompatActivity {
                         }
                         adapterMisRecetas = new AdapterRecetas(PRecetas.this,items);
                         recyclerMisRecetas.setAdapter(adapterMisRecetas);
+
+                        LinearLayoutManager layoutManager = new LinearLayoutManager(PRecetas.this, LinearLayoutManager.HORIZONTAL, false);
+                        recyclerMisRecetas.setLayoutManager(layoutManager);
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -118,7 +121,7 @@ public class PRecetas extends AppCompatActivity {
         startActivity(it);
     }
     public void goPFavoritos(View v){
-        Intent it=new Intent(getApplicationContext(), PFavoritos.class);
+        Intent it=new Intent(getApplicationContext(), PRecetas.class);
         startActivity(it);
     }
     public void goCrearReceta(View v){

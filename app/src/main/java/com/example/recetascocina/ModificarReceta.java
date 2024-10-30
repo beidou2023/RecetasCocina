@@ -22,34 +22,35 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.bumptech.glide.Glide;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class CrearReceta extends AppCompatActivity {
+public class ModificarReceta extends AppCompatActivity {
 
     ImageView receta;
     EditText nnombreReceta,ccomentario,dduracio,iingrediente,ppreingrediente,uutensilios,ppasos;
-    String idUsuario;
+    String idUsuario,idReceta;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_crear_receta);
+        setContentView(R.layout.activity_modificar_receta);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
         SharedPreferences sharedPreferences = getSharedPreferences("UsuarioPrefs", MODE_PRIVATE);
         idUsuario = sharedPreferences.getString("usuario_id", null);
+        idReceta=getIntent().getStringExtra("idReceta");
 
-        nnombreReceta=findViewById(R.id.edt_CnombreReceta );
+        nnombreReceta=findViewById(R.id.edt_MnombreReceta );
         ccomentario=findViewById(R.id.edt_Ccomentarios );
         dduracio=findViewById(R.id.edt_Cduracion );
         iingrediente=findViewById(R.id.edt_iingrediente );
@@ -57,7 +58,8 @@ public class CrearReceta extends AppCompatActivity {
         uutensilios=findViewById(R.id.edt_uutencilios );
         ppasos=findViewById(R.id.edt_ppasos );
     }
-    public void CrearRecetaa(View v){
+
+    public void ModificarRecetaa(View v){
         if(nnombreReceta.getText().toString().isEmpty()){
             Toast.makeText(getApplicationContext(),"Debe ingresar un nombre a la receta",Toast.LENGTH_SHORT).show();
         }
@@ -81,29 +83,29 @@ public class CrearReceta extends AppCompatActivity {
                         boolean success = jsonResponse.getBoolean("success");
 
                         if (success) {
-                            Toast.makeText(CrearReceta.this, "Se creo la receta con exito", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(CrearReceta.this, Home.class);
+                            Toast.makeText(ModificarReceta.this, "Se creo la receta con exito", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(ModificarReceta.this, Home.class);
                             startActivity(intent);
                         }
                         else{
                             String erore=jsonResponse.getString("numError");
-                            Toast.makeText(CrearReceta.this, "No se creo nada "+erore, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ModificarReceta.this, "No se creo nada "+erore, Toast.LENGTH_SHORT).show();
 
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
-                        Toast.makeText(CrearReceta.this, "Error en la respuesta del servidor", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ModificarReceta.this, "Error en la respuesta del servidor", Toast.LENGTH_SHORT).show();
                     }
                 }
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    Toast.makeText(CrearReceta.this, error.toString(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ModificarReceta.this, error.toString(), Toast.LENGTH_SHORT).show();
                 }
             }) {
                 @Nullable
                 @Override
-                protected Map<String, String> getParams() throws    AuthFailureError {
+                protected Map<String, String> getParams() throws AuthFailureError {
                     Map<String, String> parametros = new HashMap<>();
                     parametros.put("idUsuario", idUsuario);
                     parametros.put("nombreReceta", nnombreReceta.getText().toString());
@@ -120,6 +122,43 @@ public class CrearReceta extends AppCompatActivity {
             RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
             requestQueue.add(stringRequest);
         }
+    }
+
+    private void ObtenerData(){
+        String URL=Urls.REMOTO_VER_RECETA_URL;
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONObject jsonResponse = new JSONObject(response);
+                    boolean success = jsonResponse.getBoolean("success");
+
+                    if (success) {
+
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Toast.makeText(ModificarReceta.this, "Error en la respuesta del servidor", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(ModificarReceta.this, error.toString(), Toast.LENGTH_SHORT).show();
+            }
+        }) {
+            @Nullable
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> parametros = new HashMap<>();
+                parametros.put("idUsuario", idUsuario);
+                parametros.put("idReceta", idReceta);
+                return parametros;
+            }
+        };
+        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+        requestQueue.add(stringRequest);
     }
 
     public void goHome(View v){

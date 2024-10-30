@@ -1,0 +1,143 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+
+        <ImageView
+            android:id="@+id/img_Creceta"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/add_plus_square_svgrepo_com"
+            android:scaleType="centerCrop" />
+
+        <EditText
+            android:id="@+id/edt_MnombreReceta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp"
+            android:hint="Ingrese el nombre de la Receta"
+            />
+
+        <EditText
+            android:id="@+id/edt_Ccomentarios"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Comentarios"
+            android:gravity="start|top"
+            android:inputType="textMultiLine" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Duracion: "/>
+
+            <EditText
+                android:id="@+id/edt_Cduracion"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="number"
+                android:hint="Duracion de la receta"/>
+
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="INGREDIENTES: "
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/edt_iingrediente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp"
+            android:hint="Escriba la lista de Ingredientes"
+            />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="PRE - INGREDIENTES: "
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/edt_ppreingrediente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp"
+            android:hint="Escriba la lista de Pre - Ingredientes"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="UTENCILIOS: "
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/edt_uutencilios"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp"
+            android:hint="Escriba la lista de utencilios"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="PASOS: "
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/edt_ppasos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp"
+            android:hint="Escriba los pasos a seguir"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:onClick="CrearRecetaa"
+            android:text="CREAR" />
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"/>
+
+    </LinearLayout>
+</ScrollView>

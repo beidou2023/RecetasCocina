@@ -11,4 +11,5 @@ public class Urls {
     public static final String REMOTO_MIS_RECETAS_URL = BASE_URL + "remoto_misRecetas.php";
     public static final String REMOTO_VERIFICAR_INICIO_URL = BASE_URL + "remoto_verificarInicio.php";
     public static final String REMOTO_VER_RECETA_URL = BASE_URL + "remoto_verReceta.php";
+    public static final String REMOTO_MODIFICAR_RECETA_URL = BASE_URL + "remoto_verReceta.php";
 }
