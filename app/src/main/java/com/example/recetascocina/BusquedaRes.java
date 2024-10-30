@@ -79,6 +79,7 @@ public class BusquedaRes extends AppCompatActivity {
                         items = new ArrayList<>();
                         recyclerBusqueda.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
+
                         for (int i = 0; i < dataArray.length(); i++) {
                             JSONObject carta = dataArray.getJSONObject(i);
 
@@ -90,9 +91,12 @@ public class BusquedaRes extends AppCompatActivity {
 
                             items.add(new Object[]{col0,col1,col2,col3,col4});
                         }
-                        nroRecetas.setText(dataArray.length());
+                        nroRecetas.setText(String.valueOf(items.size()));
                         adapterBusqueda = new AdapterRecetas(BusquedaRes.this,items);
                         recyclerBusqueda.setAdapter(adapterBusqueda);
+
+                        LinearLayoutManager layoutManager = new LinearLayoutManager(BusquedaRes.this, LinearLayoutManager.HORIZONTAL, false);
+                        recyclerBusqueda.setLayoutManager(layoutManager);
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
