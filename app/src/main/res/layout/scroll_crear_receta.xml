@@ -70,7 +70,7 @@
             android:textSize="16sp" />
 
         <EditText
-            android:id="@+id/edt_ingrediente"
+            android:id="@+id/edt_iingrediente"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="16sp"
@@ -87,7 +87,7 @@
             android:textSize="16sp" />
 
         <EditText
-            android:id="@+id/edt_preingrediente"
+            android:id="@+id/edt_ppreingrediente"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="16sp"
@@ -103,7 +103,7 @@
             android:textSize="16sp" />
 
         <EditText
-            android:id="@+id/edt_utencilios"
+            android:id="@+id/edt_uutencilios"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="16sp"
@@ -119,7 +119,7 @@
             android:textSize="16sp" />
 
         <EditText
-            android:id="@+id/edt_pasos"
+            android:id="@+id/edt_ppasos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="16sp"
@@ -130,11 +130,14 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="CREAR"
+            android:layout_gravity="center"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
-            android:layout_gravity="center"
-            />
+            android:onClick="CrearRecetaa"
+            android:text="CREAR" />
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"/>
 
     </LinearLayout>
 </ScrollView>

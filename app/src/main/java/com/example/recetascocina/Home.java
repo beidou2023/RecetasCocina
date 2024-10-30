@@ -85,6 +85,9 @@ public class Home extends AppCompatActivity {
                         }
                         adapterMasVisitados = new AdapterRecetas(Home.this,items1);
                         recyclerMasVisitados.setAdapter(adapterMasVisitados);
+
+                        LinearLayoutManager layoutManager = new LinearLayoutManager(Home.this, LinearLayoutManager.HORIZONTAL, false);
+                        recyclerMasVisitados.setLayoutManager(layoutManager);
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -127,16 +130,19 @@ public class Home extends AppCompatActivity {
                         for (int i = 0; i < dataArray.length(); i++) {
                             JSONObject carta = dataArray.getJSONObject(i);
 
-                            String col0 = carta.getString("idCarta");
-                            String col1 = carta.getString("NombreEmpresa");
-                            String col2 = carta.getString("Fecha");
-                            String col3 = carta.getString("NumeroCarta");
-                            String col4 = carta.getString("Observaciones");
+                            String col0 = carta.getString("id");
+                            String col1 = carta.getString("titulo");
+                            String col2 = carta.getString("imagen");
+                            String col3 = carta.getString("username");
+                            String col4 = carta.getString("Uimagen");
 
-                            items1.add(new Object[]{col0,col1,col2,col3,col4});
+                            items2.add(new Object[]{col0,col1,col2,col3,col4});
                         }
                         adapterMiHistorial = new AdapterRecetas(Home.this,items2);
                         recyclerMiHistorial.setAdapter(adapterMiHistorial);
+
+                        LinearLayoutManager layoutManager = new LinearLayoutManager(Home.this, LinearLayoutManager.HORIZONTAL, false);
+                        recyclerMiHistorial.setLayoutManager(layoutManager);
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -177,8 +183,11 @@ public class Home extends AppCompatActivity {
                     JSONObject jsonResponse = new JSONObject(response);
                     boolean success = jsonResponse.getBoolean("success");
 
-                    if (!success) {
-                        Toast.makeText(getApplicationContext(),"No se limpio Nada",Toast.LENGTH_SHORT).show();
+                    if (success) {
+                        Toast.makeText(Home.this,"Se limpio el historial",Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        Toast.makeText(Home.this,"No se limpio nada",Toast.LENGTH_SHORT).show();
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
