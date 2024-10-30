@@ -1,7 +1,7 @@
 package com.example.recetascocina;
 
 public class Urls {
-    public static final String BASE_URL = "http://...:80/recetas/";
+    public static final String BASE_URL = "http://192.168.100.90:80/recetas/";
     public static final String REMOTO_BUSQUEDA_URL = BASE_URL + "remoto_busqueda.php";
     public static final String REMOTO_CREAR_RECETA_URL = BASE_URL + "remoto_crearReceta.php";
     public static final String REMOTO_FAVORITOS_URL = BASE_URL + "remoto_favoritos.php";

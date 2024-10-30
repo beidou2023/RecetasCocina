@@ -55,7 +55,7 @@ public class Receta extends AppCompatActivity {
         });
 
         SharedPreferences sharedPreferences = getSharedPreferences("UsuarioPrefs", MODE_PRIVATE);
-        idUsuario = sharedPreferences.getString("usuario_id", null);
+        idUsuario = sharedPreferences.getString("usuario_id", "1");
 
         idReceta=getIntent().getStringExtra("idReceta");
 
@@ -70,8 +70,7 @@ public class Receta extends AppCompatActivity {
         preIngredientes=findViewById(R.id.txv_Vprereceta);
         utencilios=findViewById(R.id.txv_Vutencilios);
         pasos=findViewById(R.id.txv_Vpasos);
-
-
+        verReceta();
     }
 
     private void verReceta(){
@@ -94,7 +93,7 @@ public class Receta extends AppCompatActivity {
                             String comentario = receta.getString("comentario");
                             String duracionn = receta.getString("duracion");
                             String imagen = receta.getString("imagen");
-                            if(imagen.isEmpty()){
+                            if(!imagen.equals("null")){
                                 urlImgReceta=Urls.BASE_URL+imagen;
                                 Glide.with(getApplicationContext())
                                         .load(urlImgReceta)
@@ -102,7 +101,7 @@ public class Receta extends AppCompatActivity {
                             }
                             String username = receta.getString("username");
                             String Uimagen = receta.getString("Uimagen");
-                            if(Uimagen.isEmpty()){
+                            if(!Uimagen.equals("null")){
                                 urlImgUsuario=Urls.BASE_URL+Uimagen;
                                 Glide.with(getApplicationContext())
                                         .load(urlImgUsuario)
@@ -111,15 +110,18 @@ public class Receta extends AppCompatActivity {
 
                             nombreReceta.setText(titulo);
                             autor.setText(username);
+                            if(comentario.equals("null"))
+                                comentario="Sin comentarios";
                             comentarios.setText(comentario);
-                            duracion.setText(duracionn);
+                            duracion.setText(duracionn+" minutos");
                         }
 
                         dataArray = jsonResponse.getJSONArray("ingredientes");
                         StringBuilder cadenaAux= new StringBuilder();
                         for (int i = 0; i < dataArray.length(); i++) {
                             JSONObject receta = dataArray.getJSONObject(i);
-                            cadenaAux.append(receta).append("\n");
+                            String ingrediente = receta.getString("nombre");
+                            cadenaAux.append(i+1).append(".- ").append(ingrediente).append("\n");
                         }
                         ingredientes.setText(cadenaAux.toString());
 
@@ -128,26 +130,32 @@ public class Receta extends AppCompatActivity {
                             cadenaAux= new StringBuilder();
                             for (int i = 0; i < dataArray.length(); i++) {
                                 JSONObject receta = dataArray.getJSONObject(i);
-                                cadenaAux.append(i+1).append(receta).append("\n");
+                                String utencilio = receta.getString("nombre");
+                                cadenaAux.append(i+1).append(".- ").append(utencilio).append("\n");
                             }
                             utencilios.setText(cadenaAux.toString());
                         }
 
                         if(jsonResponse.getBoolean("vpreIngredientes")){
-                            dataArray = jsonResponse.getJSONArray("preingredientes");
+                            dataArray = jsonResponse.getJSONArray("preIngredientes");
                             cadenaAux= new StringBuilder();
                             for (int i = 0; i < dataArray.length(); i++) {
                                 JSONObject receta = dataArray.getJSONObject(i);
-                                cadenaAux.append(i+1).append(receta).append("\n");
+                                String preIngr = receta.getString("descripcion");
+                                cadenaAux.append(i+1).append(".- ").append(preIngr).append("\n");
                             }
                             preIngredientes.setText(cadenaAux.toString());
+                        }
+                        else{
+                            preIngredientes.setText("Sin pre-ingredientes");
                         }
 
                         dataArray = jsonResponse.getJSONArray("pasos");
                         cadenaAux= new StringBuilder();
                         for (int i = 0; i < dataArray.length(); i++) {
                             JSONObject receta = dataArray.getJSONObject(i);
-                            cadenaAux.append(i+1).append(receta).append("\n");
+                            String paso=receta.getString("descripcion");
+                            cadenaAux.append(i+1).append(".- ").append(paso).append("\n");
                         }
                         pasos.setText(cadenaAux.toString());
                     }

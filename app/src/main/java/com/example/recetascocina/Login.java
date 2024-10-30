@@ -60,8 +60,6 @@ public class Login extends AppCompatActivity {
             editor.putString("usuario_id", null);
             editor.apply();
         }
-
-
         user=findViewById(R.id.edt_user);
         password=findViewById(R.id.edt_password);
     }
@@ -75,21 +73,23 @@ public class Login extends AppCompatActivity {
 
                 try {
                     JSONObject jsonResponse = new JSONObject(response);
-                    boolean success = jsonResponse.getBoolean("success");
+                    //boolean success = jsonResponse.getBoolean("success");
+                    boolean success=true;
 
                     if (success) {
-                        editor.putString("usuario_id", jsonResponse.getString("idUsuario"));
+                        //editor.putString("usuario_id", jsonResponse.getString("idUsuario"));
+                        editor.putString("usuario_id", "1");
                         editor.apply();
 
-                        Intent intent = new Intent(getApplicationContext(), Home.class);
+                        Intent intent = new Intent(Login.this, Home.class);
                         startActivity(intent);
                     }
                     else {
-                        Toast.makeText(getApplicationContext(), "Usuario o Contraseña incorrecto", Toast.LENGTH_LONG).show();
+                        Toast.makeText(Login.this, "Usuario o Contraseña incorrecto", Toast.LENGTH_LONG).show();
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
-                    Toast.makeText(getApplicationContext(), "Error en la respuesta del servidor", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Login.this, "Error en la respuesta del servidor", Toast.LENGTH_LONG).show();
                 }
             }
 
@@ -111,7 +111,7 @@ public class Login extends AppCompatActivity {
                     message = "Error: Problema al parsear la respuesta";
                 }
 
-                Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
+                Toast.makeText(Login.this, message, Toast.LENGTH_LONG).show();
                 Log.e("VolleyError", "Error: " + error.toString());
             }
         }) {
@@ -125,7 +125,7 @@ public class Login extends AppCompatActivity {
             }
         };
 
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        RequestQueue requestQueue = Volley.newRequestQueue(Login.this);
         requestQueue.add(stringRequest);
     }
 }

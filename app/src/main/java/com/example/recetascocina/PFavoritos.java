@@ -107,9 +107,6 @@ public class PFavoritos extends AppCompatActivity {
         requestQueue.add(stringRequest);
     }
 
-
-
-
     public void goHome(View v){
         Intent it=new Intent(getApplicationContext(), Home.class);
         startActivity(it);
